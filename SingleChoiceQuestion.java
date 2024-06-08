@@ -2,15 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+/** Represents a single choice question */
 public class SingleChoiceQuestion extends Question {
     
     private final List<String> answerList;
 
+    /** Constructor for SingleChoice question */
     public SingleChoiceQuestion(String questionString, String[] studentAnswers, Set<String> correctAnswers) {
         super(questionString, studentAnswers, correctAnswers, false);
         this.answerList = new ArrayList<>(Set.of(studentAnswers));
     }
 
+    /** Displays the single-choice question */
     @Override
     public void displayQuestion() {
         System.out.println("Single Choice Question: ");
@@ -22,6 +25,7 @@ public class SingleChoiceQuestion extends Question {
         }
     }
 
+    /** Retrieves the answer correponding to the given letter */
     @Override
     public String getAnswerLetter(char letter) {
         int index = letter - 'A';
@@ -31,6 +35,7 @@ public class SingleChoiceQuestion extends Question {
         throw new IllegalArgumentException("Invalid answer letter: " + letter);
     }
 
+    /** Retrieves the letter corresponding to the given answer */
     @Override
     public char getLetterAnswer(String answer) {
         int index = answerList.indexOf(answer);

@@ -1,6 +1,6 @@
-//import java.util.HashSet;
 import java.util.Set;
 
+/** Represents a generic question. */
 public abstract class Question {
     
     protected String questionString;
@@ -8,8 +8,7 @@ public abstract class Question {
     protected Set<String> studentAnswers;
     protected Set<String> correctAnswers;
 
-    //protected int countCorrectAnswer;
-
+    /** Constructor for question with the given parameters */
     public Question(String questionString, String[] studentAnswers, Set<String> correctAnswers, boolean isMultipleChoice) {
         
         this.questionString = questionString;
@@ -19,36 +18,32 @@ public abstract class Question {
         
     }
 
+    /** Gets the text of the question */
     public String getQuestionString() {
         return questionString;
     }
 
+    /** Gets the set of student answers */
     public Set<String> getStudentAnswers() {
         return studentAnswers;
     }
 
+    /** Gets the set of correct answers */
     public Set<String> getCorrectAnswers() {
         return correctAnswers;
     }
 
+    /** Check if the question is multiple choice */
     public boolean isMultipleChoice() {
         return isMultipleChoice;
     }
 
-    /*public int getCountAnswerCorrect() {
-        return countCorrectAnswer;
-    }
-    
-    /** Increment the correct answer count 
-    public void incrementCountAnswerCorrect() {
-        countCorrectAnswer++;
-    }
-    */
-
     /** Abstract method to display the question */
     public abstract void displayQuestion();
 
+    /** Abstrect method to get the answer corresponding to the given letter */
     public abstract String getAnswerLetter(char letter);
 
+    /** Abstract method to get the letter corresponding to the given answer */
     public abstract char getLetterAnswer(String answer);
 }

@@ -2,6 +2,10 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+/** 
+ * SimulationDriver class used to simulate the voting process for multiple and
+ * single choice questions
+ */
 public class SimulationDriver {
     public static void main(String[] args) {
         // Create the VotingService instance
