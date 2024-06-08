@@ -16,7 +16,7 @@ public class SimulationDriver {
                 new String[]{"Tracker Jacker", "Mockingjay Berries", "Everdeen Berries", "Nightlock"},
                 Set.of("Nightlock"));
         
-        Question q3 = new MultipleChoiceQuestion("What are the names of the two moons of Mars",
+        Question q3 = new MultipleChoiceQuestion("What are the names of the two moons of Mars?",
                 new String[]{"Titan", "Phobos", "Ganymede", "Deimos", "Europa"},
                 Set.of("Phobos", "Deimos"));
 
