@@ -7,23 +7,19 @@ public class VotingService {
     private Question currentQuestion;
     private final Map<String, Set<String>> studentSubmission;
 
-    /** Constructor for voting service object */
     public VotingService() {
         studentSubmission = new HashMap<>();
     }
 
-    /** Sets the current question for the voting service */
     public void setQuestion(Question question) {
         this.currentQuestion = question;
         studentSubmission.clear(); // clear all previous submissions when a new question is set
     }
 
-    /** Retrieves the current question being processed */
     public Question getCurrentQuestion() {
         return currentQuestion;
     }
 
-    /** Submits an answer for student */
     public void submitAnswer(String studentID, Set<Character> answerLetters) {
         if (currentQuestion == null) {
             throw new IllegalStateException("No question has been set.");
@@ -39,11 +35,10 @@ public class VotingService {
             throw new IllegalArgumentException("Only one answer allowed for single choice questions.");
         }
 
-        // store the student's answer
+        // store the student's answer (overwriting any previous submission)
         studentSubmission.put(studentID, answers);
     }
 
-    /** Displays the voting results including student answers and correctness */
     public void displayResults() {
         if (currentQuestion == null) {
             throw new IllegalStateException("No question has been set.");
@@ -68,7 +63,6 @@ public class VotingService {
             }
         }
 
-        // Display Results
         System.out.println("Results for: " + currentQuestion.getQuestionString());
         char letter = 'A';
 
@@ -88,6 +82,13 @@ public class VotingService {
             count++;
         }
         System.out.println("]");
+
+        System.out.println("Submissions:");
+        letter = 'A';
+        for (String answer : currentQuestion.getStudentAnswers()) {
+            System.out.println(letter + ": " + answerCounts.get(answer));
+            letter++;
+        }
 
         System.out.println("right: " + correctCount + " wrong: " + wrongCount);
     }
